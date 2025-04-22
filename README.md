@@ -50,7 +50,19 @@ Edit the `appsettings.json` file to configure the database connection string:
 }
 ```
 
-### 4. Migrate & Seed Database
+### 4. Configure JWT Settings
+
+Add the following JWT settings to your `appsettings.json` file:
+
+```json
+"JwtSettings": {
+  "Key": "your_secret_key",
+  "Issuer": "http://localhost:5005",
+  "Audience": "http://localhost:8000"
+}
+```
+
+### 5. Migrate & Seed Database
 
 Run the following command to apply migrations and seed the database:
 
@@ -58,7 +70,7 @@ Run the following command to apply migrations and seed the database:
 dotnet ef database update
 ```
 
-### 5. Run the Application
+### 6. Run the Application
 
 Start the application using:
 
@@ -70,6 +82,7 @@ dotnet run
 
 - Ensure that your PostgreSQL server is running before attempting to connect.
 - Replace `your_password` in the connection string with your actual PostgreSQL password.
+- Replace `your_secret_key` in the JWT settings with a secure key.
 - The API documentation will be available at `https://localhost:5001/swagger` when the application is running.
 
 ## Contributing
